@@ -10,21 +10,21 @@ const sizes = {
 };
 
 // [cx, cy, r, color] — viewBox 0 0 100 100
-// Positions measured from the original logo image
+// Y spacing recalculated so gap between dot edges is proportional to original
 const dots: [number, number, number, string][] = [
-  [50,  11, 8.5, "#312E81"],  // top — deep indigo (large)
-  [17,  28, 8.5, "#1565C0"],  // row2 left — deep blue (large)
-  [50,  27, 6.0, "#1565C0"],  // row2 center — same blue as outer
-  [83,  28, 8.5, "#1565C0"],  // row2 right — deep blue (large)
+  [50,   9, 8.5, "#312E81"],  // top — deep indigo (large)
+  [17,  26, 8.5, "#1565C0"],  // row2 left — deep blue (large)
+  [50,  26, 6.0, "#1565C0"],  // row2 center — blue
+  [83,  26, 8.5, "#1565C0"],  // row2 right — deep blue (large)
   [32,  40, 6.0, "#29B6F6"],  // row3 left — sky cyan
   [68,  40, 6.0, "#29B6F6"],  // row3 right — sky cyan
   [50,  50, 5.0, "#43A047"],  // center — green (smallest)
-  [32,  59, 6.0, "#EAB308"],  // row5 left — yellow
-  [68,  59, 6.0, "#EAB308"],  // row5 right — yellow
-  [17,  69, 8.5, "#F97316"],  // row6 left — orange (large)
-  [50,  69, 6.0, "#F97316"],  // row6 center — orange
-  [83,  69, 8.5, "#F97316"],  // row6 right — orange (large)
-  [50,  87, 8.5, "#E53935"],  // bottom — red (large)
+  [32,  60, 6.0, "#EAB308"],  // row5 left — yellow
+  [68,  60, 6.0, "#EAB308"],  // row5 right — yellow
+  [17,  74, 8.5, "#F97316"],  // row6 left — orange (large)
+  [50,  74, 6.0, "#F97316"],  // row6 center — orange
+  [83,  74, 8.5, "#F97316"],  // row6 right — orange (large)
+  [50,  91, 8.5, "#E53935"],  // bottom — red (large)
 ];
 
 const gradientStyle: React.CSSProperties = {
