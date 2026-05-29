@@ -9,22 +9,21 @@ const sizes = {
   lg: { text: 62, sub: 18, svgSize: 156, gap: 22 },
 };
 
-// [cx, cy, r, color] — viewBox "-2 -2 104 104"
-// Top/bottom moved further from rows 2/6 for correct proportional gap
+// Coordenadas exactas del SVG original (viewBox 0 0 936 905)
 const dots: [number, number, number, string][] = [
-  [50,   6, 8.5, "#312E81"],  // top — deep indigo (large)
-  [17,  28, 8.5, "#1565C0"],  // row2 left — deep blue (large)
-  [50,  28, 6.0, "#1565C0"],  // row2 center — blue
-  [83,  28, 8.5, "#1565C0"],  // row2 right — deep blue (large)
-  [32,  41, 6.0, "#29B6F6"],  // row3 left — sky cyan
-  [68,  41, 6.0, "#29B6F6"],  // row3 right — sky cyan
-  [50,  51, 5.0, "#43A047"],  // center — green (smallest)
-  [32,  61, 6.0, "#EAB308"],  // row5 left — yellow
-  [68,  61, 6.0, "#EAB308"],  // row5 right — yellow
-  [17,  74, 8.5, "#F97316"],  // row6 left — orange (large)
-  [50,  74, 6.0, "#F97316"],  // row6 center — orange
-  [83,  74, 8.5, "#F97316"],  // row6 right — orange (large)
-  [50,  94, 8.5, "#E53935"],  // bottom — red (large)
+  [461,  79, 70, "#2E3192"],
+  [144, 262, 70, "#005AAB"],
+  [461, 262, 59, "#005AAB"],
+  [779, 262, 70, "#005AAB"],
+  [302, 354, 59, "#00A0E4"],
+  [620, 354, 59, "#00A0E4"],
+  [461, 445, 47, "#3AB54A"],
+  [302, 538, 59, "#FFD504"],
+  [620, 538, 59, "#FFD504"],
+  [144, 629, 70, "#F7941D"],
+  [461, 629, 59, "#F7941D"],
+  [779, 629, 70, "#F7941D"],
+  [461, 813, 70, "#ED1B24"],
 ];
 
 const gradientStyle: React.CSSProperties = {
@@ -60,7 +59,7 @@ export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoPr
 
       {/* Dot constellation */}
       <svg
-        viewBox="-2 -4 104 108"
+        viewBox="0 0 936 905"
         width={s.svgSize}
         height={s.svgSize}
         xmlns="http://www.w3.org/2000/svg"
