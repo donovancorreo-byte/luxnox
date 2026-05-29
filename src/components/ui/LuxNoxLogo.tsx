@@ -1,12 +1,14 @@
+import Image from "next/image";
+
 interface LuxNoxLogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
 }
 
 const sizes = {
-  sm: { text: 21, sub: 8,  svgSize: 54,  gap: 8  },
-  md: { text: 34, sub: 12, svgSize: 86,  gap: 14 },
-  lg: { text: 62, sub: 18, svgSize: 156, gap: 22 },
+  sm: { textH: 44, svgSize: 48, gap: 6  },
+  md: { textH: 70, svgSize: 78, gap: 10 },
+  lg: { textH: 128, svgSize: 142, gap: 18 },
 };
 
 // Coordenadas exactas del SVG original (viewBox 0 0 936 905)
@@ -26,36 +28,20 @@ const dots: [number, number, number, string][] = [
   [461, 813, 70, "#ED1B24"],
 ];
 
-const gradientStyle: React.CSSProperties = {
-  background: "linear-gradient(to bottom, #545454, #111111)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-};
-
+// lux-la-raiz.png is ~500x500, nox-del-arte.png is ~560x500 (approx square)
 export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoProps) {
   const s = sizes[size];
 
   return (
-    <div
-      className={`flex items-center ${className}`}
-      style={{ gap: s.gap }}
-    >
-      {/* LUX */}
-      <div className="text-right leading-none">
-        <p
-          className="font-black tracking-tight leading-none"
-          style={{ fontSize: s.text, ...gradientStyle }}
-        >
-          LUX
-        </p>
-        <p
-          className="font-medium tracking-widest uppercase"
-          style={{ fontSize: s.sub, color: "#888888", marginTop: s.text * 0.06 }}
-        >
-          La raíz
-        </p>
-      </div>
+    <div className={`flex items-center ${className}`} style={{ gap: s.gap }}>
+      {/* LUX — La raíz */}
+      <Image
+        src="/lux-la-raiz.png"
+        alt="LUX La raíz"
+        height={s.textH}
+        width={s.textH}
+        style={{ objectFit: "contain" }}
+      />
 
       {/* Dot constellation */}
       <svg
@@ -69,21 +55,14 @@ export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoPr
         ))}
       </svg>
 
-      {/* NOX */}
-      <div className="text-left leading-none">
-        <p
-          className="font-black tracking-tight leading-none"
-          style={{ fontSize: s.text, ...gradientStyle }}
-        >
-          NOX
-        </p>
-        <p
-          className="font-medium tracking-widest uppercase"
-          style={{ fontSize: s.sub, color: "#888888", marginTop: s.text * 0.06 }}
-        >
-          del arte
-        </p>
-      </div>
+      {/* NOX — del arte */}
+      <Image
+        src="/nox-del-arte.png"
+        alt="NOX del arte"
+        height={s.textH}
+        width={s.textH}
+        style={{ objectFit: "contain" }}
+      />
     </div>
   );
 }
