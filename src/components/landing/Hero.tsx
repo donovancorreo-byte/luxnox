@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import LuxNoxLogo from "@/components/ui/LuxNoxLogo";
 
 const disciplines = ["Pintura", "Escultura", "Fotografía", "Arte Digital", "Música", "Danza", "Teatro", "Instalación"];
 
@@ -29,13 +30,7 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 text-center">
         {/* Logo */}
         <div className="flex justify-center mb-10">
-          <Image
-            src="/logo-negro.png"
-            alt="LUX NOX — La raíz del arte"
-            width={480}
-            height={194}
-            priority
-          />
+          <LuxNoxLogo size="lg" />
         </div>
 
         <p className="mx-auto max-w-2xl text-lg sm:text-xl text-white/70 font-medium leading-relaxed mb-10">
