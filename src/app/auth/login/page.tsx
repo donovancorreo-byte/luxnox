@@ -43,8 +43,8 @@ export default function LoginPage() {
         </div>
 
         <div className="rounded-2xl border border-black/10 bg-white shadow-sm p-8">
-          <h2 className="text-xl font-bold text-foreground mb-1">Acceso a la maqueta</h2>
-          <p className="text-sm text-foreground/40 mb-6">Ingresa las credenciales de demostración</p>
+          <h2 className="text-xl font-bold text-foreground mb-1">Iniciar sesión</h2>
+          <p className="text-sm text-foreground/40 mb-6">Ingresa a tu cuenta LUX NOX</p>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
