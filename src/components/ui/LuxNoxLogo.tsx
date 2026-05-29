@@ -10,21 +10,21 @@ const sizes = {
 };
 
 // [cx, cy, r, color] — viewBox 0 0 100 100
-// Outer dots of rows 2 & 6 are larger (match original)
+// Positions measured from the original logo image
 const dots: [number, number, number, string][] = [
-  [50,  5,  6.5, "#2D2B90"],  // top — indigo
-  [31, 22,  9.0, "#1B4BD6"],  // row2 left — blue (large)
-  [50, 22,  6.5, "#2563EB"],  // row2 center — blue
-  [69, 22,  9.0, "#1B4BD6"],  // row2 right — blue (large)
-  [36, 38,  6.5, "#0EA5E9"],  // row3 left — cyan
-  [64, 38,  6.5, "#0EA5E9"],  // row3 right — cyan
-  [50, 50,  5.0, "#22C55E"],  // center — green (smallest)
-  [36, 62,  6.5, "#EAB308"],  // row5 left — yellow
-  [64, 62,  6.5, "#EAB308"],  // row5 right — yellow
-  [31, 78,  9.0, "#F59E0B"],  // row6 left — amber (large)
-  [50, 78,  6.5, "#F97316"],  // row6 center — orange
-  [69, 78,  9.0, "#F59E0B"],  // row6 right — amber (large)
-  [50, 95,  6.5, "#EF4444"],  // bottom — red
+  [50,  11, 6.0, "#312E81"],  // top — deep indigo
+  [17,  28, 8.5, "#1565C0"],  // row2 left — deep blue (large)
+  [50,  27, 6.0, "#1D4ED8"],  // row2 center — blue
+  [83,  28, 8.5, "#1565C0"],  // row2 right — deep blue (large)
+  [32,  40, 6.0, "#29B6F6"],  // row3 left — sky cyan
+  [68,  40, 6.0, "#29B6F6"],  // row3 right — sky cyan
+  [50,  50, 5.0, "#43A047"],  // center — green (smallest)
+  [32,  59, 6.0, "#EAB308"],  // row5 left — yellow
+  [68,  59, 6.0, "#EAB308"],  // row5 right — yellow
+  [17,  69, 8.5, "#F5A623"],  // row6 left — amber (large)
+  [50,  69, 6.0, "#F97316"],  // row6 center — orange
+  [83,  69, 8.5, "#F5A623"],  // row6 right — amber (large)
+  [50,  87, 6.0, "#E53935"],  // bottom — red
 ];
 
 const gradientStyle: React.CSSProperties = {
