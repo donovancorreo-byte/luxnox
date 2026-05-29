@@ -4,45 +4,55 @@ interface LuxNoxLogoProps {
 }
 
 const sizes = {
-  sm: { text: 18, sub: 8, dot: 5, gap: 7, containerH: 60 },
-  md: { text: 28, sub: 11, dot: 7, gap: 10, containerH: 90 },
-  lg: { text: 52, sub: 16, dot: 12, gap: 17, containerH: 160 },
+  sm: { text: 21, sub: 8,  svgSize: 54,  gap: 8  },
+  md: { text: 34, sub: 12, svgSize: 86,  gap: 14 },
+  lg: { text: 62, sub: 18, svgSize: 156, gap: 22 },
 };
 
-const dots = [
-  // [cx, cy, color] — normalized to a 100x100 grid
-  [50, 5, "#3730A3"],   // top — indigo
-  [35, 22, "#1D4ED8"],  // row2 left — blue
-  [50, 22, "#2563EB"],  // row2 center
-  [65, 22, "#1D4ED8"],  // row2 right
-  [38, 38, "#0EA5E9"],  // row3 left — cyan
-  [62, 38, "#0EA5E9"],  // row3 right
-  [50, 50, "#22C55E"],  // center — green
-  [38, 62, "#EAB308"],  // row5 left — yellow
-  [62, 62, "#EAB308"],  // row5 right
-  [35, 78, "#F97316"],  // row6 left — orange
-  [50, 78, "#F97316"],  // row6 center
-  [65, 78, "#F97316"],  // row6 right
-  [50, 95, "#EF4444"],  // bottom — red
+// [cx, cy, r, color] — viewBox 0 0 100 100
+// Outer dots of rows 2 & 6 are larger (match original)
+const dots: [number, number, number, string][] = [
+  [50,  5,  6.5, "#2D2B90"],  // top — indigo
+  [31, 22,  9.0, "#1B4BD6"],  // row2 left — blue (large)
+  [50, 22,  6.5, "#2563EB"],  // row2 center — blue
+  [69, 22,  9.0, "#1B4BD6"],  // row2 right — blue (large)
+  [36, 38,  6.5, "#0EA5E9"],  // row3 left — cyan
+  [64, 38,  6.5, "#0EA5E9"],  // row3 right — cyan
+  [50, 50,  5.0, "#22C55E"],  // center — green (smallest)
+  [36, 62,  6.5, "#EAB308"],  // row5 left — yellow
+  [64, 62,  6.5, "#EAB308"],  // row5 right — yellow
+  [31, 78,  9.0, "#F59E0B"],  // row6 left — amber (large)
+  [50, 78,  6.5, "#F97316"],  // row6 center — orange
+  [69, 78,  9.0, "#F59E0B"],  // row6 right — amber (large)
+  [50, 95,  6.5, "#EF4444"],  // bottom — red
 ];
+
+const gradientStyle: React.CSSProperties = {
+  background: "linear-gradient(to bottom, #545454, #111111)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  backgroundClip: "text",
+};
 
 export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoProps) {
   const s = sizes[size];
-  const dotScale = s.dot / 7; // normalized from md
 
   return (
-    <div className={`flex items-center gap-${size === "lg" ? "6" : "3"} ${className}`}>
+    <div
+      className={`flex items-center ${className}`}
+      style={{ gap: s.gap }}
+    >
       {/* LUX */}
-      <div className="text-right">
+      <div className="text-right leading-none">
         <p
-          className="font-black tracking-tight text-white leading-none"
-          style={{ fontSize: s.text }}
+          className="font-black tracking-tight leading-none"
+          style={{ fontSize: s.text, ...gradientStyle }}
         >
           LUX
         </p>
         <p
-          className="text-foreground/40 font-medium tracking-widest uppercase"
-          style={{ fontSize: s.sub }}
+          className="font-medium tracking-widest uppercase"
+          style={{ fontSize: s.sub, color: "#888888", marginTop: s.text * 0.06 }}
         >
           La raíz
         </p>
@@ -51,26 +61,26 @@ export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoPr
       {/* Dot constellation */}
       <svg
         viewBox="0 0 100 100"
-        style={{ width: s.containerH * 0.55, height: s.containerH * 0.55 }}
-        fill="none"
+        width={s.svgSize}
+        height={s.svgSize}
         xmlns="http://www.w3.org/2000/svg"
       >
-        {dots.map(([cx, cy, color], i) => (
-          <circle key={i} cx={cx} cy={cy} r={s.dot} fill={color as string} />
+        {dots.map(([cx, cy, r, color], i) => (
+          <circle key={i} cx={cx} cy={cy} r={r} fill={color} />
         ))}
       </svg>
 
       {/* NOX */}
-      <div className="text-left">
+      <div className="text-left leading-none">
         <p
-          className="font-black tracking-tight text-foreground leading-none"
-          style={{ fontSize: s.text }}
+          className="font-black tracking-tight leading-none"
+          style={{ fontSize: s.text, ...gradientStyle }}
         >
           NOX
         </p>
         <p
-          className="text-foreground/40 font-medium tracking-widest uppercase"
-          style={{ fontSize: s.sub }}
+          className="font-medium tracking-widest uppercase"
+          style={{ fontSize: s.sub, color: "#888888", marginTop: s.text * 0.06 }}
         >
           del arte
         </p>
