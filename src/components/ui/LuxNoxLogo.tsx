@@ -12,7 +12,7 @@ const sizes = {
 // [cx, cy, r, color] — viewBox 0 0 100 100
 // Positions measured from the original logo image
 const dots: [number, number, number, string][] = [
-  [50,  11, 6.0, "#312E81"],  // top — deep indigo
+  [50,  11, 8.5, "#312E81"],  // top — deep indigo (large)
   [17,  28, 8.5, "#1565C0"],  // row2 left — deep blue (large)
   [50,  27, 6.0, "#1565C0"],  // row2 center — same blue as outer
   [83,  28, 8.5, "#1565C0"],  // row2 right — deep blue (large)
@@ -24,7 +24,7 @@ const dots: [number, number, number, string][] = [
   [17,  69, 8.5, "#F97316"],  // row6 left — orange (large)
   [50,  69, 6.0, "#F97316"],  // row6 center — orange
   [83,  69, 8.5, "#F97316"],  // row6 right — orange (large)
-  [50,  87, 6.0, "#E53935"],  // bottom — red
+  [50,  87, 8.5, "#E53935"],  // bottom — red (large)
 ];
 
 const gradientStyle: React.CSSProperties = {
