@@ -5,10 +5,11 @@ interface LuxNoxLogoProps {
   size?: "sm" | "md" | "lg";
 }
 
+// lux: 488x480 → ratio 1.017 | nox: 561x496 → ratio 1.131
 const sizes = {
-  sm: { textH: 44, svgSize: 48, gap: 6  },
-  md: { textH: 70, svgSize: 78, gap: 10 },
-  lg: { textH: 128, svgSize: 142, gap: 18 },
+  sm: { textH: 44, luxW: 45,  noxW: 50,  svgSize: 48,  gap: 6  },
+  md: { textH: 70, luxW: 71,  noxW: 79,  svgSize: 78,  gap: 10 },
+  lg: { textH: 128, luxW: 130, noxW: 145, svgSize: 142, gap: 18 },
 };
 
 // Coordenadas exactas del SVG original (viewBox 0 0 936 905)
@@ -39,8 +40,7 @@ export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoPr
         src="/lux-la-raiz.png"
         alt="LUX La raíz"
         height={s.textH}
-        width={s.textH}
-        style={{ objectFit: "contain" }}
+        width={s.luxW}
       />
 
       {/* Dot constellation */}
@@ -60,8 +60,7 @@ export default function LuxNoxLogo({ className = "", size = "md" }: LuxNoxLogoPr
         src="/nox-del-arte.png"
         alt="NOX del arte"
         height={s.textH}
-        width={s.textH}
-        style={{ objectFit: "contain" }}
+        width={s.noxW}
       />
     </div>
   );
